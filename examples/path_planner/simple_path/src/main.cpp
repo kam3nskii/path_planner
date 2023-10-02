@@ -1,6 +1,8 @@
 #include <path_planner/i_path_planner.h>
 #include <path_planner/path_planner_factory.h>
 
+#include <fmt/format.h>
+
 #include <iostream>
 
 int main()
