@@ -8,7 +8,7 @@ BUILD_DIR=${SCRIPT_DIR}/build
 cmake \
     -S ${SCRIPT_DIR} \
     -B ${BUILD_DIR} \
-    -G Ninja \
+    -G "Unix Makefiles" \
     -D CMAKE_BUILD_TYPE:STRING=${BUILD_TYPE} \
     -D CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE \
     && cmake --build ${BUILD_DIR}
