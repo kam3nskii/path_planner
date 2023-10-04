@@ -11,6 +11,9 @@ SearchResult PathPlanner::Plan(SearchOptions options) const
 {
     SearchResult result;
 
+    result.path.push_back(options.start);
+    result.path.push_back(options.goal);
+
     return result;
 }
 

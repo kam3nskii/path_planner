@@ -7,5 +7,5 @@ target_include_directories(${EXAMPLE_TARGET}
 
 target_link_libraries(${EXAMPLE_TARGET}
     ${PROJECT_NAME}
-    fmt
+    fmt::fmt
 )
