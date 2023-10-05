@@ -9,9 +9,6 @@ set(SRC_FILES
 
 add_executable(${PROJECT_NAME}_tests ${SRC_FILES})
 
-target_include_directories(${PROJECT_NAME}_tests
-    PRIVATE ${${PROJECT_NAME}_INCLUDE_DIR})
-
 target_link_libraries(${PROJECT_NAME}_tests
     ${PROJECT_NAME}
     GTest::gtest_main

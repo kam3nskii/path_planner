@@ -12,5 +12,6 @@ target_link_libraries(${PROJECT_NAME}
 )
 
 target_include_directories(${PROJECT_NAME}
-    PRIVATE ${${PROJECT_NAME}_INCLUDE_DIR}
-            ${PROJECT_SOURCE_DIR}/private_include/${PROJECT_NAME})
+    PUBLIC  ${${PROJECT_NAME}_INCLUDE_DIR}
+    PRIVATE ${PROJECT_SOURCE_DIR}/private_include/${PROJECT_NAME}
+)
