@@ -24,6 +24,10 @@ public:
     std::uint16_t GetHeight() const;
     std::uint16_t GetWidth() const;
 
+    bool IsOnGrid(Position pos) const;
+    bool IsTraversable(Position pos) const;
+    bool IsObstacle(Position pos) const;
+
     friend std::ostream& operator<<(std::ostream& out, const Grid& grid);
 
 private:

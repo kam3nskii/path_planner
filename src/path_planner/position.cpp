@@ -18,4 +18,14 @@ std::uint16_t Position::Y() const
     return m_y;
 }
 
+bool Position::operator==(const Position& other) const
+{
+    return ((X() == other.X()) && (Y() == other.Y()));
+}
+
+bool Position::operator!=(const Position& other) const
+{
+    return !(*this == other);
+}
+
 }  // namespace path_planner
