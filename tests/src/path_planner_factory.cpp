@@ -3,9 +3,12 @@
 #include <path_planner/i_path_planner.h>
 #include <path_planner/path_planner_factory.h>
 
+using path_planner::CreatePathPlanner;
+using path_planner::Grid;
+
 TEST(PathPlannerFactoryTest, CreatePathPlanner)
 {
-    const auto grid  = path_planner::Grid(42, 42);
-    auto pathPlanner = path_planner::CreatePathPlanner(grid);
+    const auto grid = Grid(42, 42);
+    auto pathPlanner = CreatePathPlanner(grid);
     EXPECT_NE(pathPlanner, nullptr);
 }

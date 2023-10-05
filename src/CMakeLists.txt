@@ -3,6 +3,7 @@ set(SRC_FILES
     ${SRC_DIR}/grid.cpp
     ${SRC_DIR}/path_planner_factory.cpp
     ${SRC_DIR}/path_planner.cpp
+    ${SRC_DIR}/position.cpp
 )
 
 add_library(${PROJECT_NAME} STATIC ${SRC_FILES})

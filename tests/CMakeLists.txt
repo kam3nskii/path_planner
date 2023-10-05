@@ -3,8 +3,10 @@ include(GoogleTest)
 set(SRC_DIR ${CMAKE_CURRENT_LIST_DIR}/src)
 set(SRC_FILES
     ${SRC_DIR}/main.cpp
+    ${SRC_DIR}/position.cpp
     ${SRC_DIR}/grid.cpp
     ${SRC_DIR}/path_planner_factory.cpp
+    ${SRC_DIR}/path_planner.cpp
 )
 
 add_executable(${PROJECT_NAME}_tests ${SRC_FILES})
