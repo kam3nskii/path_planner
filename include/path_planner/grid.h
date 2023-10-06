@@ -28,7 +28,12 @@ public:
     bool IsTraversable(Position pos) const;
     bool IsObstacle(Position pos) const;
 
+    std::vector<Position> GetTraversableNeighbors(Position pos) const;
+
     friend std::ostream& operator<<(std::ostream& out, const Grid& grid);
+
+private:
+    void CheckPosition(Position pos) const;
 
 private:
     std::uint16_t m_height;
