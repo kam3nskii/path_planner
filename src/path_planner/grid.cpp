@@ -7,10 +7,11 @@
 namespace path_planner {
 
 BaseGrid::BaseGrid(std::uint16_t height, std::uint16_t width, Obstacles obstacles)
-    : m_height(height)
-    , m_width(width)
+    : m_height(height), m_width(width)
 {
-    m_cells = std::vector<std::vector<Cell>>(height, std::vector<Cell>(width, Cell::Traversable));
+    m_cells = std::vector<std::vector<Cell>>(
+        height,
+        std::vector<Cell>(width, Cell::Traversable));
 
     for (auto obstacle : obstacles)
     {
@@ -44,8 +45,7 @@ void BaseGrid::CheckPosition(Position pos) const
     if (!IsOnGrid(pos))
     {
         throw std::runtime_error(
-                fmt::format("Position({}, {}) is outside the grid!",
-                            pos.X(), pos.Y()));
+            fmt::format("Position({}, {}) is outside the grid!", pos.X(), pos.Y()));
     }
 }
 

@@ -11,8 +11,8 @@ namespace path_planner {
 enum class Cell : char
 {
     Traversable = ' ',
-    Obstacle    = '#',
-    PathStep    = '*',
+    Obstacle = '#',
+    PathStep = '*',
 };
 
 using Obstacles = std::vector<Position>;
@@ -20,7 +20,8 @@ using Obstacles = std::vector<Position>;
 class BaseGrid
 {
 public:
-    explicit BaseGrid(std::uint16_t height, std::uint16_t width, Obstacles obstacles = {});
+    explicit BaseGrid(
+        std::uint16_t height, std::uint16_t width, Obstacles obstacles = {});
 
     std::uint16_t GetHeight() const;
     std::uint16_t GetWidth() const;
@@ -43,7 +44,8 @@ protected:
 class Grid : public BaseGrid
 {
 public:
-    explicit Grid(std::uint16_t height, std::uint16_t width, Obstacles obstacles = {});
+    explicit Grid(
+        std::uint16_t height, std::uint16_t width, Obstacles obstacles = {});
 
     bool IsTraversable(Position pos) const;
     bool IsObstacle(Position pos) const;

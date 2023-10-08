@@ -2,9 +2,7 @@
 
 namespace path_planner {
 
-Position::Position(std::uint16_t x, std::uint16_t y)
-    : m_x(x)
-    , m_y(y)
+Position::Position(std::uint16_t x, std::uint16_t y) : m_x(x), m_y(y)
 {
 }
 

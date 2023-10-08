@@ -7,8 +7,7 @@ namespace path_planner {
 struct SearchOptions
 {
     explicit SearchOptions(const Position& start, const Position& goal)
-        : start(start)
-        , goal(goal)
+        : start(start), goal(goal)
     {
     }
 

@@ -3,9 +3,7 @@
 namespace path_planner {
 
 SearchVertex::SearchVertex(Position pos, std::uint32_t gCost, SearchVertex* prev)
-    : m_pos(pos)
-    , m_prev(prev)
-    , m_gCost(gCost)
+    : m_pos(pos), m_prev(prev), m_gCost(gCost)
 {
 }
 

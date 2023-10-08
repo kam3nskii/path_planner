@@ -106,8 +106,7 @@ TEST(GridTest, CheckObstacles)
     std::stringstream stream;
     stream << grid;
     std::string str = stream.str();
-    EXPECT_EQ(std::count(str.begin(), str.end(), '#'),
-                         obstacles.size());
+    EXPECT_EQ(std::count(str.begin(), str.end(), '#'), obstacles.size());
 
     for (std::uint16_t i = 0; i < grid.GetHeight(); ++i)
     {
@@ -138,8 +137,10 @@ TEST(GridTest, GetTraversableNeighbors)
     constexpr uint16_t width{7};
 
     Obstacles obstacles = {
-        Position(1, 1), Position(1, 5), Position(3, 1), Position(3, 5)
-    };
+        Position(1, 1),
+        Position(1, 5),
+        Position(3, 1),
+        Position(3, 5)};
     const auto grid = Grid(height, width, obstacles);
     for (std::uint16_t i = 0; i < grid.GetHeight(); ++i)
     {

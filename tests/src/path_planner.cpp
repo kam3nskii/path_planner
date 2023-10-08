@@ -15,6 +15,6 @@ TEST(PathPlannerTest, PlanSimplePath)
     auto pathPlanner = CreatePathPlanner(grid);
     EXPECT_NE(pathPlanner, nullptr);
 
-    const auto result = pathPlanner->Plan(
-        SearchOptions(Position(0, 0), Position(0, 1)));
+    const auto result =
+        pathPlanner->Plan(SearchOptions(Position(0, 0), Position(0, 1)));
 }

@@ -3,8 +3,7 @@
 
 namespace path_planner {
 
-PathPlanner::PathPlanner(const Grid& grid)
-    : m_grid(grid)
+PathPlanner::PathPlanner(const Grid& grid) : m_grid(grid)
 {
 }
 
