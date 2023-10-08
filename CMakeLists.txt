@@ -11,6 +11,16 @@ add_compile_options(
 
 add_subdirectory(third_party)
 
+if(CODE_COVERAGE)
+    if(${CMAKE_BUILD_TYPE} MATCHES Debug)
+        add_compile_options(-O0 --coverage)
+        add_link_options(--coverage)
+        message(STATUS "CODE_COVERAGE enabled")
+    else()
+        message(FATAL_ERROR "CODE_COVERAGE can be enabled only for Debug build")
+    endif()
+endif()
+
 set(${PROJECT_NAME}_INCLUDE_DIR ${CMAKE_CURRENT_LIST_DIR}/include)
 add_subdirectory(src)
 
