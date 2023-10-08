@@ -28,4 +28,14 @@ bool Position::operator!=(const Position& other) const
     return !(*this == other);
 }
 
+bool Position::operator<(const Position& other) const
+{
+    if (*this == other)
+    {
+        return false;
+    }
+
+    return ((X() < other.X()) || (Y() < other.Y()));
+}
+
 }  // namespace path_planner

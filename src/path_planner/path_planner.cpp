@@ -1,3 +1,4 @@
+#include "AStar.h"
 #include "path_planner.h"
 
 namespace path_planner {
@@ -11,10 +12,9 @@ SearchResult PathPlanner::Plan(SearchOptions options)
 {
     SearchResult result;
 
-    result.path.push_back(options.start);
-    result.path.push_back(options.goal);
+    m_searchEngine = std::make_unique<AStar>();
 
-    return result;
+    return m_searchEngine->StartSearch(m_grid, options);
 }
 
 const Grid& PathPlanner::GetGrid() const

@@ -15,6 +15,7 @@ public:
 
     bool operator==(const Position& other) const;
     bool operator!=(const Position& other) const;
+    bool operator<(const Position& other) const;
 
 private:
     std::uint16_t m_x;
