@@ -2,11 +2,7 @@
 
 #include "position.h"
 
-#include <vector>
-
 namespace path_planner {
-
-using Path = std::vector<Position>;
 
 struct SearchResult
 {

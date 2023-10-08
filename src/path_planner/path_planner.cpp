@@ -7,7 +7,7 @@ PathPlanner::PathPlanner(const Grid& grid)
 {
 }
 
-SearchResult PathPlanner::Plan(SearchOptions options) const
+SearchResult PathPlanner::Plan(SearchOptions options)
 {
     SearchResult result;
 
@@ -15,6 +15,11 @@ SearchResult PathPlanner::Plan(SearchOptions options) const
     result.path.push_back(options.goal);
 
     return result;
+}
+
+const Grid& PathPlanner::GetGrid() const
+{
+    return m_grid;
 }
 
 }  // namespace path_planner

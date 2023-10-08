@@ -11,17 +11,23 @@ int main()
 
     std::cout << "PathPlanner example started" << std::endl;
 
-    const path_planner::Grid grid(5, 20,
+    const Grid grid(5, 20,
         {Position(1, 2), Position(2, 3), Position(3, 1), Position(3, 2), Position(3, 3)});
-    std::cout << "Grid:\n" << grid << std::endl;
+    std::cout << "Starting grid:\n" << grid << std::endl;
 
-    auto pathPlanner = path_planner::CreatePathPlanner(grid);
+    auto pathPlanner = CreatePathPlanner(grid);
     if (!pathPlanner)
     {
         std::cerr << "CreatePathPlanner() failed" << std::endl;
         return 1;
     }
 
-    const auto result = pathPlanner->Plan(SearchOptions(Position(0, 0), Position(0, 1)));
+    auto result = pathPlanner->Plan(SearchOptions(Position(0, 0), Position(4, 3)));
     std::cout << fmt::format("Path {}!", result.pathFound ? "found" : "not found") << std::endl;
+    if (result.pathFound)
+    {
+        std::cout << "Grid with path:\n"
+                  << CreateGridWithPath(pathPlanner->GetGrid(), result.path)
+                  << std::endl;
+    }
 }

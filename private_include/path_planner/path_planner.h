@@ -10,10 +10,12 @@ class PathPlanner : public IPathPlanner
 public:
     explicit PathPlanner(const Grid& grid);
 
-    SearchResult Plan(SearchOptions options) const override;
+    SearchResult Plan(SearchOptions options) override;
+
+    const Grid& GetGrid() const override;
 
 private:
-    Grid m_grid;
+    const Grid m_grid;
 };
 
 }  // namespace path_planner

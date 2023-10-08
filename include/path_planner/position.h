@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstdint>
+#include <vector>
 
 namespace path_planner {
 
@@ -19,5 +20,7 @@ private:
     std::uint16_t m_x;
     std::uint16_t m_y;
 };
+
+using Path = std::vector<Position>;
 
 }  // namespace path_planner
