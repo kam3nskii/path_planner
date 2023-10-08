@@ -9,7 +9,12 @@ add_compile_options(
     -Werror -Wall -Wextra -Wpedantic
 )
 
-add_subdirectory(third_party)
+if(FIND_PACKAGES)
+    find_package(fmt REQUIRED)
+    find_package(GTest REQUIRED)
+else()
+    add_subdirectory(third_party)
+endif()
 
 if(CODE_COVERAGE)
     if(${CMAKE_BUILD_TYPE} MATCHES Debug)

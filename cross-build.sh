@@ -7,6 +7,7 @@ SUPPORTED_BUILD_TYPES=(Debug Release)
 
 BUILD_TYPE=${SUPPORTED_BUILD_TYPES[0]}
 CODE_COVERAGE=OFF
+FIND_PACKAGES=OFF
 
 while [[ $# -gt 0 ]]; do
   case $1 in
@@ -26,6 +27,10 @@ while [[ $# -gt 0 ]]; do
       ;;
     --coverage)
       CODE_COVERAGE=ON
+      shift # past argument
+      ;;
+    --find-packages)
+      FIND_PACKAGES=ON
       shift # past argument
       ;;
     --clean-first)
@@ -56,4 +61,5 @@ cmake \
     -D CMAKE_BUILD_TYPE:STRING=${BUILD_TYPE} \
     -D CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE \
     -D CODE_COVERAGE=${CODE_COVERAGE} \
+    -D FIND_PACKAGES=${FIND_PACKAGES} \
     && cmake --build ${BUILD_DIR}
