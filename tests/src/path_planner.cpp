@@ -9,6 +9,15 @@ using path_planner::Grid;
 using path_planner::Position;
 using path_planner::SearchOptions;
 
+TEST(PathPlannerTest, GetGrid)
+{
+    const auto grid = Grid(2, 3);
+    auto pathPlanner = CreatePathPlanner(grid);
+    EXPECT_NE(pathPlanner, nullptr);
+
+    EXPECT_EQ(grid, pathPlanner->GetGrid());
+}
+
 TEST(PathPlannerTest, PlanSimplePath)
 {
     const auto grid = Grid(2, 3);

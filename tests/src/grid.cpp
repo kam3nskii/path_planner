@@ -9,8 +9,10 @@
 #include <sstream>
 #include <stdexcept>
 
+using path_planner::Cell;
 using path_planner::Grid;
 using path_planner::Obstacles;
+using path_planner::Path;
 using path_planner::Position;
 
 TEST(GridTest, GetHeight)
@@ -106,7 +108,9 @@ TEST(GridTest, CheckObstacles)
     std::stringstream stream;
     stream << grid;
     std::string str = stream.str();
-    EXPECT_EQ(std::count(str.begin(), str.end(), '#'), obstacles.size());
+    EXPECT_EQ(
+        std::count(str.begin(), str.end(), static_cast<char>(Cell::Obstacle)),
+        obstacles.size());
 
     for (std::uint16_t i = 0; i < grid.GetHeight(); ++i)
     {
@@ -127,6 +131,21 @@ TEST(GridTest, CheckObstacles)
             }
         }
     }
+}
+
+TEST(GridTest, CompareGrids)
+{
+    constexpr uint16_t height{2};
+    constexpr uint16_t width{3};
+
+    EXPECT_EQ(Grid(height, width), Grid(height, width));
+    EXPECT_NE(Grid(height, width), Grid(height + 1, width));
+    EXPECT_NE(Grid(height, width), Grid(height, width + 1));
+    EXPECT_NE(Grid(height, width), Grid(height + 1, width + 1));
+
+    Obstacles obstacles = {Position(0, 0), Position(1, 0)};
+    EXPECT_EQ(Grid(height, width, obstacles), Grid(height, width, obstacles));
+    EXPECT_NE(Grid(height, width), Grid(height, width, obstacles));
 }
 
 TEST(GridTest, GetTraversableNeighbors)
@@ -173,4 +192,26 @@ TEST(GridTest, GetTraversableNeighbors)
             }
         }
     }
+}
+
+TEST(GridTest, CreateGridWithPath)
+{
+    constexpr uint16_t height{5};
+    constexpr uint16_t width{7};
+    const auto grid = Grid(height, width);
+
+    Path path = {
+        Position(0, 0),
+        Position(1, 1),
+        Position(1, 5),
+        Position(3, 1),
+        Position(3, 5)};
+    const auto gridWithPath = CreateGridWithPath(grid, path);
+
+    std::stringstream stream;
+    stream << gridWithPath;
+    std::string str = stream.str();
+    EXPECT_EQ(
+        std::count(str.begin(), str.end(), static_cast<char>(Cell::PathStep)),
+        path.size());
 }

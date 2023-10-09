@@ -61,6 +61,18 @@ BaseGrid CreateGridWithPath(const BaseGrid& grid, const Path& path)
     return result;
 }
 
+bool operator==(const BaseGrid& lft, const BaseGrid& rht)
+{
+    return (
+        (lft.m_height == rht.m_height) && (lft.m_width == rht.m_width)
+        && (lft.m_cells == rht.m_cells));
+}
+
+bool operator!=(const BaseGrid& lft, const BaseGrid& rht)
+{
+    return !(lft == rht);
+}
+
 std::ostream& operator<<(std::ostream& out, const BaseGrid& grid)
 {
     std::string formatString;

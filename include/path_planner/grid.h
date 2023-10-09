@@ -29,6 +29,10 @@ public:
     bool IsOnGrid(Position pos) const;
 
     friend BaseGrid CreateGridWithPath(const BaseGrid& grid, const Path& path);
+
+    friend bool operator==(const BaseGrid& lft, const BaseGrid& rht);
+    friend bool operator!=(const BaseGrid& lft, const BaseGrid& rht);
+
     friend std::ostream& operator<<(std::ostream& out, const BaseGrid& grid);
 
 protected:
